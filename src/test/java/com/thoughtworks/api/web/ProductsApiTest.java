@@ -43,7 +43,10 @@ public class ProductsApiTest extends ApiSupport{
     productRepository.create(product);
 
     final Response get = get("/products/" + id);
-    assertThat(get.getStatus(), is(201));
+
+    final Product res = get.readEntity(ProductRecord.class);
+
+    assertThat(res, is(product));
   }
 
   @Test
@@ -51,6 +54,6 @@ public class ProductsApiTest extends ApiSupport{
     String id = productRepository.generateId();
 
     final Response get = get("/products/" + id);
-    assertThat(get.getStatus(), is(400));
+    assertThat(get.getStatus(), is(204));
   }
 }

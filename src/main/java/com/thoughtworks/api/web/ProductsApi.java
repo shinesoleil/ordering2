@@ -18,12 +18,8 @@ public class ProductsApi {
   @GET
   @Path("{productId}")
   @Produces(MediaType.APPLICATION_JSON)
-  public Response getProductById(@PathParam("productId") String productId) {
-    if (productRepository.findById(productId) != null) {
-      return Response.status(201).build();
-    } else {
-      return Response.status(400).build();
-    }
+  public Product getProductById(@PathParam("productId") String productId) {
+    return productRepository.findById(productId);
   }
 
   @POST

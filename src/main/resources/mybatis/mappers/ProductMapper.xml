@@ -6,6 +6,12 @@
         VALUES (#{id}, #{name}, #{description}, #{price},  #{rating})
     </insert>
 
+    <select id="findById" resultMap="records.product">
+        select id, name, description, price, rating
+        FROM products P
+        WHERE P.id = #{id}
+    </select>
+
     <!--<select id="ofId" resultMap="records.user">-->
         <!--SELECT-->
         <!--<include refid="columns.user"/>-->

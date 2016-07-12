@@ -5,4 +5,6 @@ public interface ProductRepository {
 
   Product create(Product product);
 
+  Product findById(String id);
+
 }

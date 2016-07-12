@@ -1,8 +1,6 @@
 package com.thoughtworks.api.domain.core;
 
-import com.thoughtworks.api.infrastructure.records.Record;
-
-public interface Product extends Record {
+public interface Product {
   String getId();
   void setId(String id);
 

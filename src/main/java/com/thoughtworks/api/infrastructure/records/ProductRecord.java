@@ -1,7 +1,6 @@
 package com.thoughtworks.api.infrastructure.records;
 
 import com.thoughtworks.api.domain.core.Product;
-import com.thoughtworks.api.web.jersey.Routes;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,14 +11,6 @@ public class ProductRecord implements Product {
   private String description;
   private float price;
   private int rating;
-
-  public ProductRecord(String id, String name, String description, float price, int rating) {
-    this.id = id;
-    this.name = name;
-    this.description = description;
-    this.price = price;
-    this.rating = rating;
-  }
 
 
   @Override
@@ -72,14 +63,12 @@ public class ProductRecord implements Product {
     this.rating = rating;
   }
 
-  @Override
-  public Map<String, Object> toRefJson(Routes routes) {
+  public Map<String, Object> toRefJson() {
     Map<String, Object> refJson = new HashMap<>();
     return refJson;
   }
 
-  @Override
-  public Map<String, Object> toJson(Routes routes) {
+  public Map<String, Object> toJson() {
     Map<String, Object> json = new HashMap<>();
 
     return json;

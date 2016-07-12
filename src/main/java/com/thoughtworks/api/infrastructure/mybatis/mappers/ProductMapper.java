@@ -1,5 +1,6 @@
 package com.thoughtworks.api.infrastructure.mybatis.mappers;
 
+import com.thoughtworks.api.domain.core.Product;
 import org.apache.ibatis.annotations.Param;
 
 public interface ProductMapper {
@@ -9,5 +10,5 @@ public interface ProductMapper {
             @Param("price") float price,
             @Param("rating") int rating);
 
-
+  Product findById(@Param("id") String id);
 }

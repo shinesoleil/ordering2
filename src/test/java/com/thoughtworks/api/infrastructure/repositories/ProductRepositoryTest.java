@@ -22,7 +22,13 @@ public class ProductRepositoryTest {
   @Test
   public void should_create_and_get_product() {
     String id = productRepository.generateId();
-    Product product = new ProductRecord(id, "desk", "black", 530, 4);
+
+    Product product = new ProductRecord();
+    product.setId(id);
+    product.setName("desk");
+    product.setDescription("black");
+    product.setPrice(530);
+    product.setRating(4);
 
     Product createdProduct = productRepository.create(product);
 

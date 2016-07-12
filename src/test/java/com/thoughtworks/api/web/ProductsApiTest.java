@@ -38,12 +38,7 @@ public class ProductsApiTest extends ApiSupport{
   public void should_get_product_by_id() throws Exception {
     String id = productRepository.generateId();
 
-    Product product = new ProductRecord();
-    product.setId(id);
-    product.setName("desk");
-    product.setDescription("black");
-    product.setPrice(530);
-    product.setRating(4);
+    Product product = new ProductRecord(id, "desk", "black", 530, 4);
 
     productRepository.create(product);
 

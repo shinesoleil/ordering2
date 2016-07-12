@@ -29,13 +29,12 @@ public class ProductsApi {
   @POST
   @Consumes(MediaType.APPLICATION_JSON)
   public Response createProduct(HashMap info) {
-    Product product = new ProductRecord();
+    Product product = new ProductRecord(productRepository.generateId(),
+      info.get("name").toString(),
+      info.get("description").toString(),
+      Float.valueOf(info.get("price").toString()),
+      (int) info.get("rating"));
 
-    product.setId(productRepository.generateId());
-    product.setName(info.get("name").toString());
-    product.setDescription(info.get("description").toString());
-    product.setPrice(Float.valueOf(info.get("price").toString()));
-    product.setRating((int) info.get("rating"));
 
     if (productRepository.create(product) != null) {
       return Response.status(201).build();

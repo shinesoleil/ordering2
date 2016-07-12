@@ -12,6 +12,17 @@ public class ProductRecord implements Product {
   private float price;
   private int rating;
 
+  public ProductRecord() {
+
+  }
+
+  public ProductRecord(String id, String name, String description, float price, int rating) {
+    this.id = id;
+    this.name = name;
+    this.description = description;
+    this.price = price;
+    this.rating = rating;
+  }
 
   @Override
   public String getId() {
